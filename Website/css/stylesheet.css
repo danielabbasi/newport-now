@@ -1,7 +1,27 @@
+*{
+  margin:0px;
+  padding:0px;
+}
 .jumbotron{
   background-image:url('Images/background1.jpg');
   color:#fff;
   font-family:DokChampa;
   background-size:100% 100%;
   text-align:center;
+}
+.btn-success{
+  max-width:150px;
+  margin:3%;
+}
+.navbar{
+  background-color:#383838;
+}
+.navbar a{
+  color:#6dbce0;
+}
+.navbar li a:hover{
+  background-color:#716f6f
+}
+.navbar a:hover{
+  background-color:#636262;
 }
