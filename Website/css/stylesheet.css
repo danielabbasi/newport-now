@@ -2,6 +2,7 @@
   margin:0px;
   padding:0px;
 }
+
 .jumbotron{
   background-image:url('Images/background1.jpg');
   color:#fff;
@@ -35,3 +36,16 @@
   padding:10px;
   margin-bottom:20px;
 }
+.contactUs{
+  background-color:rgba(225, 246, 18, 0.6);
+  color:#fff;
+  padding:10px;
+  min-height:430px;
+}
+.textbox{
+  color:#000;
+}
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
