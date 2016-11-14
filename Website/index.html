@@ -1,0 +1,36 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Home</title>
+
+      <link href="css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap stylesheet -->
+      <link href="css/stylesheet.css" type="text/css" rel="stylesheet"> <!-- my css, this will take presidence -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <span id="logo">
+    </span>
+    <span id="nav">
+    </span>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <h1>Search</h1>
+
+        </div>
+     </div>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+      $("#nav").load("navigation.html");
+  });
+    $(document).ready(function(){
+      $("#logo").load("logo.html");
+    });
+  </script>
+  </body>
+<html>
