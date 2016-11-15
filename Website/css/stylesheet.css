@@ -11,6 +11,9 @@
   text-align:center;
   min-height:300px;
 }
+.jumbotron h1{
+  padding:10px;
+}
 .btn-success{
   max-width:150px;
   margin:7%;
@@ -28,7 +31,7 @@
   background-color:#636262;
 }
 .quickLinks{
-  background-color:#04d1a8;
+  background-color:#a6dacf;
   min-height:250px;
   border-style:solid;
   border-color:2px;
@@ -51,9 +54,9 @@
    background-color: grey;
 }
 .container_search{
-  margin: 100px auto;
+  margin: auto;
   width: 300px;
-  height: 50px;
+  height: auto;
 }
 .search {
   width: 300px;
