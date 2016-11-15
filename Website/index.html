@@ -7,6 +7,7 @@
       <title>Home</title>
 
       <link href="css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap stylesheet -->
+      <link href="maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
       <link href="css/stylesheet.css" type="text/css" rel="stylesheet"> <!-- my css, this will take presidence -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
@@ -15,10 +16,10 @@
     <span id="nav"></span>
 
     <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <h1>Search</h1>
-          <img src="Images/searchbar.png" alt="searchbar_image">
+      <div class="container_search">
+        <div class="search">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="search" id="search" placeholder="Search..." />
         </div>
      </div>
     </div>
@@ -52,7 +53,12 @@
     $(document).ready(function(){
       $("#nav").load("navigation.html");
   });
-
+//   $(document).ready(function(){
+//     $('#TextBoxId').keypress(function(e){         //This will be used later to make search button search on pressing enter
+//       if(e.keyCode==13)
+//       $('#linkadd').click();
+//     });
+// });
   </script>
   </body>
 <html>
