@@ -16,6 +16,10 @@
 }
 .btn-success{
   max-width:150px;
+  margin:7%;
+}
+form .btn-success{
+  max-width:150px;
   margin:7% auto;
 }
 .navbar{
