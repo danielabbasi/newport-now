@@ -7,14 +7,11 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
+
 @app.route("/Profile")
 def profile():
-
-    conn = sqlite3.connect(DATABASE)
-    c = conn.cursor()
-    c.execute('SELECT * FROM Business WHERE ID = 1' )
-    data = c.fetchall()
-
+    global data
+    print (data)
     return render_template('Profile.html', data = data)
 
 @app.route("/Home")
@@ -31,12 +28,14 @@ def navigation():
 
 @app.route("/Search")
 def search():
+    global data
     search_data = request.args['userin']
     print(search_data)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute('SELECT * FROM Business WHERE Name=\'' +search_data + '\'')
+    c.execute('SELECT * FROM Business WHERE Name =\'' +search_data + '\'')
     data = c.fetchall()
+    print (data)
     return render_template('SearchList.html', data = data)
 
 
