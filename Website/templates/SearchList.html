@@ -2,11 +2,19 @@
 <html>
 <head>
   <title>Profile</title>
+
+  <style>
+    .jumbotron{
+      background-image: url('static/img/background1.jpg');
+    }
+  </style>
+
 </head>
 
 <body>
 
 
+<<<<<<< HEAD
 <h2>Search</h2>
 <ul>
   {% for row in data %}
@@ -14,6 +22,14 @@
       {{row[3]}}
   {% endfor %}
 </ul>
+=======
+<h2>Contact Information</h2>
+<div id = "Contact">
+<h3>Number:</h3>{{data[0][4]}}
+<h3>Postcode:</h3>{{data[0][5]}}
+<h3>City:</h3>{{data[0][6]}}
+</div>
+>>>>>>> 0232f167af18f79a3028bb2d89a9f3b9d86d3507
 
 </body>
 </html>
