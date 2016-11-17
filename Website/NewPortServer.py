@@ -32,6 +32,13 @@ def navigation():
 @app.route("/Search")
 def search():
     search_data = request.args['userin']
+    print(search_data)
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute('SELECT * FROM Business WHERE Name=\'' +search_data + '\'')
+    data = c.fetchall()
+    return render_template('SearchList.html', data = data)
+
 
 @app.route("/News")
 def news():
@@ -47,14 +54,7 @@ def contact_us():
     # #             directory[name] =  num
     # #         print(directory)
     # #     return message
-    print(search_data)
 
-    conn = sqlite3.connect(DATABASE)
-    c = conn.cursor()
-    c.execute('SELECT * FROM Business WHERE Name=\'' +search_data + '\'')
-    data = c.fetchall()
-
-    return render_template('SearchList.html', data = data)
     #return data
 if __name__ == "__main__":
     ()
