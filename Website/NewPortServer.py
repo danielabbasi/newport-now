@@ -29,11 +29,10 @@ def about_us():
 def navigation():
 	return render_template('navigation.html', msg = '')
 
-<<<<<<< HEAD
 @app.route("/Search")
 def search():
     search_data = request.args['userin']
-=======
+
 @app.route("/News")
 def news():
     return render_template('news.html', msg = '')
@@ -41,7 +40,7 @@ def news():
 @app.route("/Contact_us")
 def contact_us():
     return render_template('contact_us.html', msg = '')
->>>>>>> 0232f167af18f79a3028bb2d89a9f3b9d86d3507
+
 
     # if not(name in ):
     # #             message = 'ok'
