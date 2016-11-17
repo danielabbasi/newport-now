@@ -29,8 +29,24 @@ def about_us():
 def navigation():
 	return render_template('navigation.html', msg = '')
 
+@app.route("/Search")
+def search():
+    search_data = request.args['userin']
 
+    # if not(name in ):
+    # #             message = 'ok'
+    # #             directory[name] =  num
+    # #         print(directory)
+    # #     return message
+    print(search_data)
 
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute('SELECT * FROM Business WHERE Name=\'' +search_data + '\'')
+    data = c.fetchall()
+
+    return render_template('SearchList.html', data = data)
+    #return data
 if __name__ == "__main__":
     ()
     app.run(debug=True)
