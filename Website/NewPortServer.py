@@ -29,6 +29,13 @@ def about_us():
 def navigation():
 	return render_template('navigation.html', msg = '')
 
+@app.route("/News")
+def news():
+    return render_template('news.html', msg = '')
+
+@app.route("/Contact_us")
+def contact_us():
+    return render_template('contact_us.html', msg = '')
 
 
 if __name__ == "__main__":
