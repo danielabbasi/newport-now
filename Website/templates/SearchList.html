@@ -10,16 +10,14 @@
   </style>
 
 </head>
-
 <body>
 
-
-<h2>Contact Information</h2>
-<div id = "Contact">
-<h3>Number:</h3>{{data[0][4]}}
-<h3>Postcode:</h3>{{data[0][5]}}
-<h3>City:</h3>{{data[0][6]}}
-</div>
-
+  <h2>Search</h2>
+  <ul>
+    {% for row in data %}
+      <li><a href = "/Profile">{{row[1]}}</a></li>
+      {{row[3]}}
+    {% endfor %}
+  </ul>
 </body>
 </html>

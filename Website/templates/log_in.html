@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="static/css/log_in.css" media="screen" title="no title">
+
+    <link rel="stylesheet" href="../static/css/log_in.css" media="screen" title="no title">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap stylesheet -->
+    <link href="static/maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/stylesheet.css" type="text/css" rel="stylesheet"> <!-- my css, this will take presidence -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <style>
       .jumbotron{
@@ -12,11 +17,36 @@
     </style>
   </head>
   <body>
+
+    <span id="nav"></span>
+    <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>Search Now!</h1>
+      <div class="container_search">
+        <div class="search">
+
+
+
+          <!-- <form action = "/Search" method="get" id = "myForm">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" id="search" name = "userin" placeholder="Search..." />
+          </form> -->
+
+          <form action = "/Search" method="get">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" id="search" name = "userin" placeholder="Search..." />
+            <button type = "submit">Go</button>
+          </form>
+
+        </div>
+     </div>
+    </div>
+    </div>
+
     <form class="#" action="#" method="post">
       <div class="containerimg">
-        <img src="img/avatar1.svg" alt="Avatar" class="Avatar" />
+        <img src="../static/img/avatar1.svg" alt="Avatar" class="Avatar" />
       </div>
-
 
       <div class="containter">
         <label>Username</label>
@@ -34,5 +64,18 @@
       </div>
 
     </form>
+
+    <script>
+    $(document).ready(function(){
+      $("#nav").load("navigation.html");
+  });
+//   $(document).ready(function(){
+//     $('#TextBoxId').keypress(function(e){         //This will be used later to make search button search on pressing enter
+//       if(e.keyCode==13)
+//       $('#linkadd').click();
+//     });
+// });
+  </script>
+  
   </body>
 </html>
