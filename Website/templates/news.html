@@ -1,0 +1,64 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>News</title>
+
+      <link href="static/css/bootstrap.min.css" rel="stylesheet"> <!-- bootstrap stylesheet -->
+      <link href="static/maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="static/css/stylesheet.css" type="text/css" rel="stylesheet"> <!-- my css, this will take presidence -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <style>
+        .jumbotron{
+          background-image: url('static/img/background1.jpg');
+        }
+      </style>
+  </head>
+  <body>
+
+    <span id="nav"></span>
+    <div class="container-fluid">
+      <p>Image Slider will go here</p>
+    </div>
+
+      <div class="container">
+        <article class="row">
+        <section class="col-sm-6">
+          <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+        </section>
+          <section class="col-sm-6">
+            <a class="twitter-timeline" data-height="500" href="https://twitter.com/newportnow">Tweets by newportnow</a>
+          </section>
+
+      </article>
+    </div>
+
+    <div id="fb-root"></div>
+
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=164331140700470";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+    $(document).ready(function(){
+      $("#nav").load("navigation.html");
+  });
+//   $(document).ready(function(){
+//     $('#TextBoxId').keypress(function(e){         //This will be used later to make search button search on pressing enter
+//       if(e.keyCode==13)
+//       $('#linkadd').click();
+//     });
+// });
+  </script>
+  </body>
+<html>

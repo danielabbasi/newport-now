@@ -10,6 +10,12 @@
       <link href="static/maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
       <link href="static/css/stylesheet.css" type="text/css" rel="stylesheet"> <!-- my css, this will take presidence -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <style>
+        .jumbotron{
+          background-image: url('static/img/background1.jpg');
+        }
+      </style>
   </head>
   <body>
 
@@ -19,8 +25,20 @@
       <h1>Search Now!</h1>
       <div class="container_search">
         <div class="search">
-          <span class="icon"><i class="fa fa-search"></i></span>
-          <input type="search" id="search" placeholder="Search..." />
+
+
+
+          <!-- <form action = "/Search" method="get" id = "myForm">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" id="search" name = "userin" placeholder="Search..." />
+          </form> -->
+
+          <form action = "/Search" method="get">
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="text" id="search" name = "userin" placeholder="Search..." />
+            <button type = "submit">Go</button>
+          </form>
+
         </div>
      </div>
     </div>
@@ -62,5 +80,7 @@
 //     });
 // });
   </script>
+
+
   </body>
 <html>
