@@ -10,9 +10,10 @@ app = Flask(__name__)
 
 @app.route("/Profile")
 def profile():
+    global click
     global data
     print (data)
-    return render_template('Profile.html', data = data)
+    return render_template('Profile.html', data = data, Click = -1)
 
 @app.route("/Home")
 def home():
@@ -28,6 +29,7 @@ def navigation():
 
 @app.route("/Search")
 def search():
+    global click
     global data
     search_data = request.args['userin']
     print(search_data)
@@ -36,7 +38,7 @@ def search():
     c.execute('SELECT * FROM Business WHERE Name =\'' +search_data + '\'')
     data = c.fetchall()
     print (data)
-    return render_template('SearchList.html', data = data)
+    return render_template('SearchList.html', data = data, Click = -1)
 
 
 @app.route("/News")
@@ -47,6 +49,9 @@ def news():
 def contact_us():
     return render_template('contact_us.html', msg = '')
 
+@app.route("/Log_in")
+def log_in():
+    return render_template('log_in.html')
 
     # if not(name in ):
     # #             message = 'ok'
