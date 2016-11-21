@@ -35,7 +35,8 @@ def search():
     print(search_data)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute('SELECT * FROM Business WHERE Name =\'' +search_data + '\'')
+    query_str = """SELECT * FROM Business WHERE Name = "{0}" OR Type = "{0}";""".format(search_data)
+    c.execute(query_str)
     data = c.fetchall()
     print (data)
     return render_template('SearchList.html', data = data, Click = -1)
@@ -52,6 +53,20 @@ def contact_us():
 @app.route("/Log_in")
 def log_in():
     return render_template('log_in.html')
+
+@app.route("/test")
+def LoginTes():
+    temptname = request.args['uname']
+    temptpassword = request.args['upassword']
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    query_str = """SELECT * FROM Login WHERE UserName = "Admin" AND Password = "Admin123";""".format(temptname, temptpassword)
+    c.execute(query_str)
+    test_login = c.fetchall()
+    print(test_login)
+    if test_login is not None:
+        print (test_login)
+        return 'Working'
 
     # if not(name in ):
     # #             message = 'ok'
