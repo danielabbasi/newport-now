@@ -209,7 +209,7 @@ input[type=text], input [type=password] {
 }
 
 .cancelbtn {
-  width: 30%;
+  width: 20%;
   padding: 10px 8px;
   background-color: #f44336;
   border-radius:6px;
@@ -228,7 +228,7 @@ input[type=text], input [type=password] {
 }
 
 img.Avatar {
-  width: 40%;
+  width: 25%;
   border-radius: 50%;
 }
 
