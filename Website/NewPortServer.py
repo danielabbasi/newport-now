@@ -47,6 +47,10 @@ def news():
 def contact_us():
     return render_template('contact_us.html', msg = '')
 
+@app.route("/Login")
+def login():
+    return render_template('log_in.html', msg = '')
+
 
     # if not(name in ):
     # #             message = 'ok'
