@@ -49,6 +49,10 @@ def news():
 def contact_us():
     return render_template('contact_us.html', msg = '')
 
+@app.route("/Login")
+def login():
+    return render_template('log_in.html', msg = '')
+
 @app.route("/Log_in")
 def log_in():
     return render_template('log_in.html')
