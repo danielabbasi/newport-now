@@ -5,8 +5,9 @@
 .row{
   text-align:center;
 }
-container{
+.container{
   margin-bottom:25px;
+  text-align:center;
 }
 /*start of slider styling*/
 .slider {
@@ -127,6 +128,9 @@ form .btn-success{
   margin: auto;
   width: 300px;
   height: auto;
+  border-color:#397939;
+  border-radius:6px;
+  height:50px;
 }
 .search {
   width: 300px;
@@ -177,4 +181,66 @@ form .btn-success{
 
 .navbar-toggle .icon-bar{
   background-color:#fff;
+}
+/* Log in CSS*/
+form {
+  border-style:none;
+}
+input[type=text], input [type=password] {
+  width: 90%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc
+  box-sizing: border-box;
+}
+
+.btn-success {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.cancelbtn {
+  width: 100%;
+  padding: 10px 8px;
+  background-color: #f44336
+}
+
+.containerimg {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.Avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 30%;
+    border-radius:6px;
+    border-color:transparent;
+  }
+}
+
+.loginCont{
+  background-color:#ebdfdf;
+  padding:15px;
 }
