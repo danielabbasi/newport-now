@@ -18,57 +18,29 @@
   </head>
   <body>
 
-    <span id="nav"></span>
-    <div class="container-fluid">
-    <div class="jumbotron">
-      <div class="row">
-      <h1>Search Now!</h1>
-    </div>
-    <div class="row">
-      <div class="container_search">
-        <div class="search">
-        </div>
-      </div>
-
-
-
-          <!-- <form action = "/Search" method="get" id = "myForm">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="text" id="search" name = "userin" placeholder="Search..." />
-          </form> -->
-
-          <form action = "/Search" method="get">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="text" id="search" name = "userin" placeholder="Search..." />
-            <button type = "submit" class="btn btn-success" style="margin:10px 0px">Go</button>
-          </form>
-
-        </div>
-     </div>
-    </div>
-    </div>
-
-    <form class="#" action="/Log_in" method="get">
+    <form class="#" action="/test" method="get">
       <div class="containerimg">
         <img src="../static/img/avatar1.svg" alt="Avatar" class="Avatar" />
       </div>
 
-      <div class="containter">
-        <article class="loginCont">
+      <div class="containter" style="text-align:center;">
+        <article class="loginCont" style="text-align:center;">
         <label>Username</label>
         <input type="text" placeholder="Enter Username" name="uname">
-
         <label>Password</label>
-
         <input type="text" placeholder="Enter Password" name="uname">
         <div class="row" style="text-align:center;">
-        <button type="submit" class="btn btn-success" name="button" style="margin:0px;">Login</button>
+        <button type="submit" class="btn btn-success" name="Check_login" style="margin:0px;">Login</button><br>
         </div>
         <div class="row">
         <input type="checkbox" checked="checked">Remember Me
       </div>
+      <div class="row">
         <button type="button" class="cancelbtn" name="button">Cancel</button><br>
-        <span class="psw">Forgot <a href="#">Password</a></span>
+      </div>
+      <div class="row">
+        <span class="psw" style="float:none;">Forgot <a href="#">Password</a></span>
+      </div>
       </article>
     </div>
     </form>

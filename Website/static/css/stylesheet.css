@@ -214,6 +214,12 @@ input[type=text], input [type=password] {
   background-color: #f44336;
   border-radius:6px;
   border-color:transparent;
+  color: white;
+  padding: 15px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+
+
 }
 
 .containerimg {
@@ -240,11 +246,11 @@ span.psw {
     display: block;
     float: none;
   }
-  .cancelbtn {
+  /*.cancelbtn {
     width: 30%;
     border-radius:6px;
     border-color:transparent;
-  }
+  }*/
 }
 
 .loginCont{
