@@ -204,8 +204,10 @@ input[type=text], input [type=password] {
 }
 
 .cancelbtn {
-  width: 100%;
-  padding: 10px 8px;
+  color: white;
+  padding: 15px 20px;
+  margin: 10px 0;
+  cursor: pointer;
   background-color: #f44336
 }
 
@@ -233,11 +235,11 @@ span.psw {
     display: block;
     float: none;
   }
-  .cancelbtn {
+  /*.cancelbtn {
     width: 30%;
     border-radius:6px;
     border-color:transparent;
-  }
+  }*/
 }
 
 .loginCont{
