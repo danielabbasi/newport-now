@@ -39,7 +39,10 @@ def search():
     c.execute(query_str)
     data = c.fetchall()
     print (data)
-    return render_template('SearchList.html', data = data, Click = -1)
+    if not data:
+        return 'Your search - ' + search_data + ' - did not match any businesses on our site, please try again.'
+    else:
+        return render_template('SearchList.html', data = data, Click = -1)
 
 
 @app.route("/News")
