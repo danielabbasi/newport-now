@@ -67,13 +67,14 @@ def LoginTes():
     temptpassword = request.args['upassword']
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    query_str = """SELECT * FROM Login WHERE UserName = "Admin" AND Password = "Admin123";""".format(temptname, temptpassword)
+    query_str = """SELECT * FROM Login WHERE UserName = "{0}" OR Password = "{0}";""".format(temptname, temptpassword)
     c.execute(query_str)
     test_login = c.fetchall()
     print(test_login)
-    if test_login is not None:
-        print (test_login)
-        return 'Working'
+    if not test_login:
+        return 'Sorry your details are incorrect and cannot have access to this page.'
+    else:
+        return 'I am an Admin and now I have Admin rights.'
 
     # if not(name in ):
     # #             message = 'ok'
