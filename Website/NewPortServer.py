@@ -72,9 +72,10 @@ def LoginTes():
     test_login = c.fetchall()
     print(test_login)
     if not test_login:
-        return 'Sorry your details are incorrect and cannot have access to this page.'
+        print (test_login)
+        return ''
     else:
-        return 'I am an Admin and now I have Admin rights.'
+        return 'working'
 
     # if not(name in ):
     # #             message = 'ok'
