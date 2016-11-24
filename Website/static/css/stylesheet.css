@@ -84,10 +84,12 @@ opacity: 1.0;
   font-family:DokChampa;
   background-size:100% 100%;
   text-align:center;
-  min-height:300px;
+  min-height:200px;
+  padding-bottom:0%;
+  padding-top:0%;
 }
 .jumbotron h1{
-  padding:10px;
+  padding:0px;
 }
 .btn-success{
   max-width:150px;
@@ -144,7 +146,7 @@ form .btn-success{
     width: 520px;
     height: 60px;
     padding: 10px;
-    margin: 100px auto 50px;
+    margin: 10px auto 50px;
     overflow: hidden; /* Clear floats */
 }
 #search,

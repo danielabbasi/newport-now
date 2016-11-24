@@ -2,18 +2,22 @@ import os
 from flask import Flask, redirect, request, render_template
 import sqlite3
 
-DATABASE = 'Newport.db'
+DATABASE = 'NewportNow.sqlite'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
 
-@app.route("/Profile")
-def profile():
-    global click
-    global data
-    print (data)
-    return render_template('Profile.html', data = data, Click = -1)
+@app.route("/Profile/<ID>")
+def profile(ID):
+    print("im alive")
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    query_selected = 'SELECT * FROM Business WHERE ID = ID'
+    c.execute(query_selected)
+    Selected = c.fetchall()
+    print(Selected)
+    return render_template('profile.html', Selected = Selected)
 
 @app.route("/Home")
 def home():
@@ -35,7 +39,7 @@ def search():
     print(search_data)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    query_str = """SELECT * FROM Business WHERE Name = "{0}" OR Type = "{0}";""".format(search_data)
+    query_str = """SELECT * FROM Business WHERE Company = "{0}" OR Street = "{0}";""".format(search_data)
     c.execute(query_str)
     data = c.fetchall()
     print (data)
@@ -67,7 +71,7 @@ def LoginTes():
     temptpassword = request.args['upassword']
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    query_str = """SELECT * FROM Login WHERE UserName = "{0}" OR Password = "{0}";""".format(temptname, temptpassword)
+    query_str = """SELECT * FROM Login WHERE Username = "{0}" OR Password = "{0}";""".format(temptname, temptpassword)
     c.execute(query_str)
     test_login = c.fetchall()
     print(test_login)
