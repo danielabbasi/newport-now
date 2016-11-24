@@ -8,12 +8,16 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 
 
-@app.route("/Profile")
-def profile():
-    global click
-    global data
-    print (data)
-    return render_template('Profile.html', data = data, Click = -1)
+@app.route("/Profile/<ID>")
+def profile(ID):
+    print("im alive")
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    query_selected = 'SELECT * FROM Business WHERE ID = ID'
+    c.execute(query_selected)
+    Selected = c.fetchall()
+    print(Selected)
+    return render_template('profile.html', Selected = Selected)
 
 @app.route("/Home")
 def home():
@@ -29,7 +33,6 @@ def navigation():
 
 @app.route("/Search")
 def search():
-    global click
     global data
     search_data = request.args['userin']
     print(search_data)
@@ -42,7 +45,7 @@ def search():
     if not data:
         return 'Your search - ' + search_data + ' - did not match any businesses on our site, please try again.'
     else:
-        return render_template('SearchList.html', data = data, Click = -1)
+        return render_template('SearchList.html', data = data)
 
 
 @app.route("/News")
