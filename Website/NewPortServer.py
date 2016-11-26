@@ -10,10 +10,11 @@ app = Flask(__name__)
 
 @app.route("/Profile/<ID>")
 def profile(ID):
-    print("im alive")
+    print("im alive " +ID)
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    query_selected = 'SELECT * FROM Business WHERE ID = ID'
+    query_selected = 'SELECT * FROM Business WHERE ID =' +ID
+    print(query_selected)
     c.execute(query_selected)
     Selected = c.fetchall()
     print(Selected)
@@ -33,7 +34,6 @@ def navigation():
 
 @app.route("/Search")
 def search():
-    global click
     global data
     search_data = request.args['userin']
     print(search_data)
@@ -46,7 +46,7 @@ def search():
     if not data:
         return 'Your search - ' + search_data + ' - did not match any businesses on our site, please try again.'
     else:
-        return render_template('SearchList.html', data = data, Click = -1)
+        return render_template('SearchList.html', data = data)
 
 
 @app.route("/News")

@@ -13,23 +13,32 @@
 
 <body>
   <span id="nav"></span>
-  <div id = "Picture">
-     <img src = {{Selected[2]}} alt="Logo" width= 100px/>
   </div>
 <br>
   <div id = "Name">
     <h2>Company Name</h2>
-    {{Selected[1]}}
+    {{Selected[0][1]}}
   </div>
-
 <br>
 
+<h2>Owner's Information</h2>
+    {{Selected[0][2]}} <!--Mr/Miss/Dr-->
+    {{Selected[0][3]}}   {{Selected[0][4]}} <!--First name & Last name -->
+
+<br>
 <h2>Contact Information</h2>
 <div id = "Contact">
-<h3>Number:</h3>{{Selected[4]}}
- <h3>Postcode:</h3>{{Selected[5]}}
- <h3>City:</h3>{{Selected[6]}}
- </div>
+    <h3>Phone: </h3>{{Selected[0][5]}}
+    <h3>Mobile: </h3>{{Selected[0][6]}}
+    <h3>Email: </h3>{{Selected[0][7]}}
+</div>
+<br>
+
+<h2>address</h2>
+   <h3>Street:</h3> {{Selected[0][8]}}
+   <h3>Postcode:</h3> {{Selected[0][9]}}
+
+
 
 </body>
 </html>
