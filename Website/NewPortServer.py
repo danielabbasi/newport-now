@@ -53,15 +53,11 @@ def search():
 def news():
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("SELECT * FROM Articles")
-        # cur.execute("SELECT * FROM Customers WHERE surname=? AND public = 'True';", [surname])
+    cur.execute("SELECT * FROM Articles;")
     data = cur.fetchall()
-
-    if(len(data) > 1):
-        return render_template("Profile.html")
-
     conn.close()
-    return render_template('news.html', msg = '', data=data)
+    return render_template('news.html', msg = '', )
+
 
 @app.route("/Contact_us")
 def contact_us():

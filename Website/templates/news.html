@@ -21,7 +21,7 @@
       <script src="static/js/slider.js"></script>
   </head>
   <body>
-
+{%block mainBlock%}
     <span id="nav"></span>
     <div class="container">
       <article class="slider">
@@ -67,7 +67,7 @@
                  <td>Catagory</td>
                  <td>Article</td>
               </thead>
-              {% block printingResults%}
+              <tbody>
               {% for row in data %}
                  <tr>
                    <td>{{row[0]}}</td>
@@ -76,7 +76,8 @@
                    <td>{{row[3]}}</td>
                  </tr>
               {% endfor %}
-              {%endblock%}
+            </tbody>
+
             </table>
           </section>
         </div>
@@ -84,7 +85,6 @@
     </article>
 
     <div id="fb-root"></div>
-
 
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
@@ -108,5 +108,6 @@
 //     });
 // });
   </script>
+  {%endblock%}
   </body>
 <html>
