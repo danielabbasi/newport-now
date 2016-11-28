@@ -5,6 +5,10 @@
 
 </div>
 <div class="col-xs-6">
+  {% for message in get_flashed_messages() %}
+      {{ message }}
+  {% endfor %}
+
   <a href="/Contact_us" class="btn btn-success" role="button" style="float:right;height:auto;max-width:150px;margin:5% 10%;">CONTACT US</a>
 
 </div>
