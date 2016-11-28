@@ -51,7 +51,17 @@ def search():
 
 @app.route("/News")
 def news():
-    return render_template('news.html', msg = '')
+    conn = sqlite3.connect(DATABASE)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Articles")
+        # cur.execute("SELECT * FROM Customers WHERE surname=? AND public = 'True';", [surname])
+    data = cur.fetchall()
+
+    if(len(data) > 1):
+        return render_template("Profile.html")
+
+    conn.close()
+    return render_template('news.html', msg = '', data=data)
 
 @app.route("/Contact_us")
 def contact_us():
@@ -79,6 +89,7 @@ def LoginTes():
         return 'Sorry your details are incorrect and cannot have access to this page.'
     else:
         return 'I am an Admin and now I have Admin rights.'
+
 
     # if not(name in ):
     # #             message = 'ok'
