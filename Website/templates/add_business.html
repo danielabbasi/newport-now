@@ -17,26 +17,27 @@
 
   <span id="nav"></span>
 <<h2>Add Business Data</h2>
-<form id='myForm' onsubmit="return loadName()" method='post'>
+<form id='myForm'>
   Company:<input type = "text" name = "company"><br>
   First name:<input type = "text" name = "firstName"><br>
   Surname:<input type = "text" name = "surname"><br>
   Phone:<input type = "number" name = "phone"><br>
   Mobile:<input type = "number" name = "mobile"><br>
   Email:<input type = "text" name = "email"><br>
-  Street:<input type = "text" name = "stret"><br>
+  Street:<input type = "text" name = "street"><br>
   Postcode:<input type = "text" name = "postcode"><br>
   <button type = "submit"> submit </button>
 </form>
 <span id='txt'></span>
 <h3><a href=/Admin>Back to Admin page</h3>
   <script>
-  $(document).ready(function(){
-    $("#nav").load("navigation.html");
-  });
+  // $(document).ready(function(){
+  //   $("#nav").load("navigation.html");
+  // });
   </script>
 <script>
-  function loadName() {
+
+  document.getElementById('myForm').onsubmit = function() {
     var company = document.forms["myForm"]["company"].value;
     var firstName = document.forms["myForm"]["firstName"].value;
     var surname = document.forms["myForm"]["surname"].value;
@@ -45,8 +46,8 @@
     var email = document.forms["myForm"]["email"].value;
     var street = document.forms["myForm"]["street"].value;
     var postcode = document.forms["myForm"]["postcode"].value;
-
-    params = 'company='+company+'&firstName='+firstName+'&surname='+surname+'&phone='+phone+'mobile='+mobile+'&email='+email+'&street='+street+'&postcode='+postcode;
+    console.log("Prepping submission")
+    params = 'company='+company+'&firstName='+firstName+'&surname='+surname+'&phone='+phone+'&mobile='+mobile+'&email='+email+'&street='+street+'&postcode='+postcode;
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", '/Admin/AddBusiness', true); // true is asynchronous
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
