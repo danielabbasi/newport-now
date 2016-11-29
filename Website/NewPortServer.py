@@ -48,6 +48,18 @@ def search():
     else:
         return render_template('SearchList.html', data = data)
 
+def getData():
+    msg = []
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute('SELECT * FROM Customers')
+    msg.append( c.fetchall()  )
+    c.execute('SELECT * FROM jobs')
+    msg.append( c.fetchall()  )
+    c.execute('SELECT * FROM orders')
+    msg.append(  c.fetchall()  )
+    print(msg)
+    return msg
 
 @app.route("/News")
 def news():
@@ -56,7 +68,7 @@ def news():
     cur.execute("SELECT * FROM Articles;")
     data = cur.fetchall()
     conn.close()
-    return render_template('news.html', msg = '', )
+    return render_template('news.html', data = data )
 
 
 @app.route("/Contact_us")
