@@ -41,12 +41,12 @@
       {% for row in data %}
         <tr>
           <td style="width:25%"><img src="{{row[10]}}"</td>
-        <td style="width:75%"><a href = "/Profile/{{row[0]}}">{{row[1]}}</a></td>
-      {% endfor %}
+        <td style="width:75%"><a href = "/Profile/{{row[0]}}">{{row[1]}}</a></td> <!-- when click on a business, run server code, the slected business's ID will be sent over to the server as well-->
+      {% endfor %} <!--A for loop that will show all records that match what the searched, which is saved into the varuble data -->
         </tr>
     </table>
     {% for row in data %}
-      {{row[7]}}
+      {{row[7]}}  <!-- Only the information inside 8th colum of the rows will be shown--> 
     {% endfor %}
   </section>
   </article>
