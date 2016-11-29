@@ -39,6 +39,42 @@ def home():
 def about_us():
 	return render_template('contact_us.html', msg = '')
 
+@app.route("/Admin", methods = ['GET','POST'])
+@login_required
+def admin():
+    return render_template('Admin.html')
+
+@app.route("/Admin/business_form", methods = ['GET','POST'])
+@login_required
+def businessDetailsForm():
+    return render_template('add_business.html')
+
+@app.route("/Admin/AddBusiness", methods = ['GET','POST'])
+@login_required
+def addBusiness():
+    company = request.form.get('company', default="Error")
+    firstName = request.form.get('firstName', default="Error")
+    surname = request.form.get('surname', default="Error")
+    phone = request.form.get('phone', default="Error")
+    mobile = request.form.get('mobile', default="Error")
+    email = request.form.get('email', default="Error")
+    street = request.form.get('street', default="Error")
+    postcode = request.form.get('postcode', default="Error")
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        cur.execute("""INSERT INTO Business ('Company', 'First Name', 'Last Name', 'Phone', 'Mobile', 'Email', 'Street', 'Postcode')
+                     VALUES (?,?,?,?,?,?,?,?)""",(company, firstName, surname, phone, mobile, email, street, postcode))
+        conn.commit()
+        print("hello")
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        return msg
+        conn.close()
+
 @app.route("/navigation.html")
 def navigation():
 	return render_template('navigation.html', msg = '')
