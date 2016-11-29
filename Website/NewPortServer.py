@@ -1,12 +1,23 @@
 import os
-from flask import Flask, redirect, request, render_template
+from flask import Flask, redirect, request, render_template, url_for, session, flash, make_response
+from functools import wraps
 import sqlite3
 
 DATABASE = 'NewportNow.sqlite'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
+app.secret_key = "testing"
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            flash('You need to login first.')
+            return redirect(url_for('login'))
+    return wrap
 
 @app.route("/Profile/<ID>")
 def profile(ID):
@@ -27,6 +38,42 @@ def home():
 @app.route("/AboutUs")
 def about_us():
 	return render_template('contact_us.html', msg = '')
+
+@app.route("/Admin", methods = ['GET','POST'])
+@login_required
+def admin():
+    return render_template('Admin.html')
+
+@app.route("/Admin/business_form", methods = ['GET','POST'])
+@login_required
+def businessDetailsForm():
+    return render_template('add_business.html')
+
+@app.route("/Admin/AddBusiness", methods = ['GET','POST'])
+@login_required
+def addBusiness():
+    company = request.form.get('company', default="Error")
+    firstName = request.form.get('firstName', default="Error")
+    surname = request.form.get('surname', default="Error")
+    phone = request.form.get('phone', default="Error")
+    mobile = request.form.get('mobile', default="Error")
+    email = request.form.get('email', default="Error")
+    street = request.form.get('street', default="Error")
+    postcode = request.form.get('postcode', default="Error")
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        cur.execute("""INSERT INTO Business ('Company', 'First Name', 'Last Name', 'Phone', 'Mobile', 'Email', 'Street', 'Postcode')
+                     VALUES (?,?,?,?,?,?,?,?)""",(company, firstName, surname, phone, mobile, email, street, postcode))
+        conn.commit()
+        print("hello")
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        return msg
+        conn.close()
 
 @app.route("/navigation.html")
 def navigation():
@@ -79,26 +126,33 @@ def contact_us():
 def login():
     return render_template('log_in.html', msg = '')
 
-@app.route("/Log_in")
-def log_in():
-    return render_template('log_in.html')
-
-@app.route("/test")
+@app.route("/test", methods = ['GET', 'POST'])
 def LoginTes():
+    error = None
     temptname = request.args['uname']
     temptpassword = request.args['upassword']
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    query_str = """SELECT * FROM Login WHERE Username = "{0}" OR Password = "{0}";""".format(temptname, temptpassword)
+    query_str = """SELECT * FROM Login WHERE Username = "{0}" AND Password = "{1}";""".format(temptname, temptpassword)
     c.execute(query_str)
     test_login = c.fetchall()
     print(test_login)
     if not test_login:
-        return 'Sorry your details are incorrect and cannot have access to this page.'
+        error = 'Invalid credentials. Please try again'
+
+        return render_template('log_in.html', error=error)
     else:
-        return 'I am an Admin and now I have Admin rights.'
+        session['logged_in'] = True
+        # flash('You are logged in.')
+        return render_template('index.html', msg='You are logged in as: '+temptname) #want to put this at top of the page later
 
+        # return 'I am an Admin and now I have Admin rights.'
 
+@app.route("/logout", methods = ['GET', 'POST'])
+@login_required
+def logout():
+    session.pop('logged_in',None)
+    return redirect(url_for('home'))
     # if not(name in ):
     # #             message = 'ok'
     # #             directory[name] =  num
