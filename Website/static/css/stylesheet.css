@@ -324,7 +324,7 @@ span.psw {
 }
 
 @media screen and (max-width: 300px) {
-  span.psw {
+  span.psw, #Address, #Contact, #OwnerInfo  {
     display: block;
     float: none;
   }
