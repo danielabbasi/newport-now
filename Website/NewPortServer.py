@@ -44,12 +44,12 @@ def about_us():
 def admin():
     return render_template('Admin.html')
 
-@app.route("/Admin/business_form", methods = ['GET','POST'])
+@app.route("/Admin/business_form", methods = ['GET', 'POST'])
 @login_required
 def businessDetailsForm():
     return render_template('add_business.html')
 
-@app.route("/Admin/AddBusiness", methods = ['GET','POST'])
+@app.route("/Admin/AddBusiness", methods = ['POST'])
 @login_required
 def addBusiness():
     company = request.form.get('company', default="Error")
@@ -63,10 +63,9 @@ def addBusiness():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("""INSERT INTO Business ('Company', 'First Name', 'Last Name', 'Phone', 'Mobile', 'Email', 'Street', 'Postcode')
+        cur.execute("""INSERT INTO Business ('Company', 'First Name', 'Last Name', 'Phone', 'Mobile', 'Email', 'Street', 'Post Code')
                      VALUES (?,?,?,?,?,?,?,?)""",(company, firstName, surname, phone, mobile, email, street, postcode))
         conn.commit()
-        print("hello")
         msg = "Record successfully added"
     except:
         conn.rollback()
@@ -121,6 +120,10 @@ def news():
 @app.route("/Contact_us")
 def contact_us():
     return render_template('contact_us.html', msg = '')
+
+@app.route("/Events")
+def events():
+    return render_template('events.html', msg = '')
 
 @app.route("/Login")
 def login():
