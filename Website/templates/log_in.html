@@ -26,6 +26,12 @@
 
       <div class="containter" style="text-align:center;">
         <article class="loginCont" style="text-align:center;">
+          {% block content %}{% endblock %}
+
+        <!-- errors -->
+        {% if error %}
+          <p class="error"><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
         <label>Username</label>
         <input type="text" placeholder="Enter Username" name="uname">
         <label>Password</label>
