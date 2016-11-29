@@ -110,6 +110,10 @@ def news():
 def contact_us():
     return render_template('contact_us.html', msg = '')
 
+@app.route("/Events")
+def events():
+    return render_template('events.html', msg = '')
+
 @app.route("/Login")
 def login():
     return render_template('log_in.html', msg = '')
