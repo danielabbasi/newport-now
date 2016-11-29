@@ -1,7 +1,4 @@
-*{
-  margin:0px;
-  padding:0px;
-}
+
 .row{
   text-align:center;
 }
@@ -269,7 +266,7 @@ form .btn-success{
 
 .navbar-toggle .icon-bar{
   background-color:#fff;
-}*/
+}
 /* Log in CSS*/
 form {
   border-style:none;
@@ -305,8 +302,6 @@ input[type=text], input [type=password] {
   padding: 15px 20px;
   margin: 10px 0;
   cursor: pointer;
-
-
 }
 
 .containerimg {
@@ -346,25 +341,56 @@ span.psw {
 }
 
  /*profile page*/
-table {
-       width: 100%;
-       table-layout: fixed;
-       border: 1px solid black;
 
+#PictureName{
+  margin: auto;
+  display: block;
+  margin-bottom: 2%;
+}
+
+#Address{
+  margin-left: 10%;
+  padding: 0%;
+  float: left;
+
+}
+
+#Contact{
+margin-left: 14%;
+margin-top: -3%;
+float: left;
+
+}
+
+#OwnerInfo{
+ float: right;
+ margin-right: 10%;
+ margin-top: -2%;
+}
+
+table {
+       /*table-layout: fixed;*/
+       width: 100%;
  }
 
    th {
-       height: 50px;
-       background-color: purple;
+      font-family: sans-serif;;
+     font-weight: 500;
+     font-size: 30px;
+     background-image: url('../static/img/background1.jpg');
    }
 
     tr: nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+    border: 1px solid black;
    }
 
     td {
+      border: 1px solid #dddddd;
      padding: 15px;
      text-align: left;
+     text-align: left;
+     padding: 8px;
    }
 
 .myForm input[type=text]{
