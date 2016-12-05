@@ -46,7 +46,6 @@
     var email = document.forms["myForm"]["email"].value;
     var street = document.forms["myForm"]["street"].value;
     var postcode = document.forms["myForm"]["postcode"].value;
-    console.log("Prepping submission")
     params = 'company='+company+'&firstName='+firstName+'&surname='+surname+'&phone='+phone+'&mobile='+mobile+'&email='+email+'&street='+street+'&postcode='+postcode;
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", '/Admin/AddBusiness', true); // true is asynchronous
