@@ -95,6 +95,30 @@ def search():
         return render_template('SearchList.html', data = data)
 
 
+@app.route("/business")
+def business():
+    global data
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    query_str = """SELECT * FROM Business;"""
+    c.execute(query_str)
+    data = c.fetchall()
+    print (data)
+    return render_template('all_business.html', data = data)
+
+def getData():
+    msg = []
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute('SELECT * FROM Customers')
+    msg.append( c.fetchall()  )
+    c.execute('SELECT * FROM jobs')
+    msg.append( c.fetchall()  )
+    c.execute('SELECT * FROM orders')
+    msg.append(  c.fetchall()  )
+    print(msg)
+    return msg
+
 @app.route("/News")
 def news():
     conn = sqlite3.connect(DATABASE)
@@ -102,12 +126,29 @@ def news():
     cur.execute("SELECT * FROM Articles;")
     data = cur.fetchall()
     conn.close()
-    return render_template('news.html', msg = '', )
+    return render_template('news.html', data = data )
 
 
 @app.route("/Contact_us")
 def contact_us():
     return render_template('contact_us.html', msg = '')
+
+@app.route("/Contact_us/AddComment", methods = ['POST'])
+def AddComment():
+    fname = request.form.get('fname', default="Error")
+    surname = request.form.get('lname', default="Error")
+    email = request.form.get('E-mail', default="Error")
+    comment = request.form.get('comment', default="Error")
+
+    conn = sqlite3.connect(DATABASE)
+    cur = conn.cursor()
+    cur.execute("INSERT INTO Comments ('FirstName', 'Surname', 'E-mail', 'Comment')\
+                 VALUES (?,?,?,?)",(fname, surname, email, comment))
+    conn.commit()
+    conn.close()
+    msg = "Comment submitted"
+    # return render_template('contact_us.html', msg=msg)
+    return redirect('/Contact_us')
 
 @app.route("/Events")
 def events():
@@ -120,6 +161,7 @@ def login():
 
 @app.route("/test", methods = ['GET', 'POST'])
 def LoginTes():
+    global temptname
     error = None
     temptname = request.args['uname']
     temptpassword = request.args['upassword']
