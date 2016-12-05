@@ -148,6 +148,7 @@ def login():
 
 @app.route("/test", methods = ['GET', 'POST'])
 def LoginTes():
+    global temptname
     error = None
     temptname = request.args['uname']
     temptpassword = request.args['upassword']
