@@ -94,6 +94,18 @@ def search():
     else:
         return render_template('SearchList.html', data = data)
 
+
+@app.route("/business")
+def business():
+    global data
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    query_str = """SELECT * FROM Business;"""
+    c.execute(query_str)
+    data = c.fetchall()
+    print (data)
+    return render_template('all_business.html', data = data)
+
 def getData():
     msg = []
     conn = sqlite3.connect(DATABASE)
