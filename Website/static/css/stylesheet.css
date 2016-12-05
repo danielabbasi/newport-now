@@ -113,14 +113,16 @@ form .btn-success{
   border-style:solid;
   border-color:2px;
   border-color:#076d7b;
-  padding:10px;
   margin-bottom:20px;
+}
+.quickLinks p{
+  padding:15px;
 }
 .contactUs{
   background-color:rgba(225, 246, 18, 0.6);
   color:#fff;
   padding:10px;
-  min-height:495px;
+  min-height:575px;
 }
 .textbox{
   color:#000;
@@ -140,11 +142,13 @@ form .btn-success{
     border-width: 1px;
     border-style: solid;
     border-color: #c4d9df #a4c3ca #83afb7;
-    width: 520px;
-    height: 60px;
+    width: 80%;
+    max-width:800px;
+    height: auto;
     padding: 10px;
     margin: 10px auto 50px;
-    overflow: hidden; /* Clear floats */
+    overflow: hidden;
+    max-width: 800px;
 }
 #search,
 #submit {
@@ -406,4 +410,8 @@ table {
   margin:auto;
   padding:20px;
   width:80%;
+}
+
+.id{
+
 }

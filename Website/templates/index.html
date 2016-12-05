@@ -15,6 +15,28 @@
       <style>
         .jumbotron{
           background-image: url('static/img/background1.jpg');
+          min-height:100px;
+        }
+        .jumbotron h1{
+          font-size:35pt;
+          padding-left:4%;
+          padding-top:2%;
+          text-align:center;
+        }
+        .quickLinks h1{
+          background-color: #076d7b;
+          width: 100%;
+          padding: 10px;
+          color: #fff;
+        }
+        .quickLinks a{
+          color:#076d7b;
+          padding:10px;
+          text-decoration: underline;
+        }
+        .quickLinks a:hover{
+          background-color:#076d7b;
+          color:#fff;
         }
       </style>
   </head>
@@ -25,12 +47,16 @@
   <p>Click <a href="/logout">here</a> to logout.</p>
     <div class="container-fluid">
         <div class="jumbotron">
+          <!-- <div class="row">
           <h2>Want to find businesses in Newport</h2>
-            <h1>Search Now!</h1>
-      <form action = "/Search" method="get" id="searchbox">
-          <input id="search" type="text" name = "userin" placeholder="Search...">
+        </div> -->
+        <div class="row">
+            <h1>Search Newport Businesses Now!</h1>
+      <form style="margin-top:2%;" action = "/Search" method="get" id="searchbox">
+          <input id="search" style="width:80%;" type="text" name = "userin" placeholder="Search...">
           <input id="submit" type="submit" value="Search">
       </form>
+    </div>
           <!-- <form action = "/Search" method="get">
             <span class="icon"><i class="fa fa-search"></i></span>
             <input type="text" id="search" name = "userin" placeholder="Search..."/>
@@ -41,24 +67,31 @@
      </div>
     </div>
   </div>
-
+      <section class="container" style="padding:0px;">
+        <section class="row">
+          <img src="static/img/events_banner.png" alt="events banner" style="width:100%;height:350px;">
+        </section>"
+      </section>
       <div class="container">
         <article class="row">
         <section class="col-sm-4">
           <section class="quickLinks">
             <h1>Quick Links</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet sem quam, at sagittis </p>
+              <h3><a href="/Contact_us">Contact Us</a></h3>
+              <h3><a href="/News">News</a></h3>
+              <h3><a href="/Events">Events</a></h3>
+
           </section>
         </section>
           <section class="col-sm-4">
           <section class="quickLinks">
-            <h1>Profile</h1>
+            <h1>Upcoming Events</h1>
             <p>tellus vulputate sed. Duis sed tristique sem, vel pulvinar nisi. Nunc a lacinia nisl. Suspendisse sagittis lacinia sapien. </p>
           </section>
         </section>
         <section class="col-sm-4">
         <section class="quickLinks">
-          <h1>Profile</h1>
+          <h1>News</h1>
           <p>sapien. Proin id luctus risus, et lacinia augue. Praesent aliquet lectus vel est finibus mollis et vulputate metus. Morbi tortor leo.</p>
         </section>
       </section>

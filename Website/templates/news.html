@@ -15,15 +15,33 @@
       <style>
         .jumbotron{
           background-image: url('static/img/background1.jpg');
+          padding:30px;
+        }
+        td{
+          padding:10px;
+        }
+        thead td{
+          padding:20px;
+          color:#fff;
+          font-weight:bold;
+          font-size:20px;
         }
       </style>
       <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="static/js/slider.js"></script>
+      <style>
+        thead{
+          background-image:url("static/img/line3.png");
+        }
+      </style>
   </head>
   <body>
 {%block mainBlock%}
     <span id="nav"></span>
+
     <div class="container">
+      <div class="jumbotron">
+      <article class="row">
       <article class="slider">
         <ul>
           <li>
@@ -42,19 +60,23 @@
 
         </div>
       </article>
+      </article>
     </div>
-
+    </div>
+        <hr>
       <div class="container">
-        <article class="row">
+        <article class="row" style="padding:30px;background-color:#e4e4e4;">
         <section class="col-sm-6">
           <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
         </section>
           <section class="col-sm-6">
             <a class="twitter-timeline" data-height="500" href="https://twitter.com/newportnow">Tweets by newportnow</a>
           </section>
-
       </article>
     </div>
+
+      <hr>
+
     <article class="container">
       <div class="row">
         <div class="col-lg-12">
