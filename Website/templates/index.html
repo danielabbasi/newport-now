@@ -15,6 +15,13 @@
       <style>
         .jumbotron{
           background-image: url('static/img/background1.jpg');
+          min-height:100px;
+        }
+        .jumbotron h1{
+          font-size:35pt;
+          padding-left:4%;
+          padding-top:2%;
+          text-align:center;
         }
       </style>
   </head>
@@ -25,12 +32,16 @@
   <p>Click <a href="/logout">here</a> to logout.</p>
     <div class="container-fluid">
         <div class="jumbotron">
+          <!-- <div class="row">
           <h2>Want to find businesses in Newport</h2>
-            <h1>Search Now!</h1>
-      <form action = "/Search" method="get" id="searchbox">
-          <input id="search" type="text" name = "userin" placeholder="Search...">
+        </div> -->
+        <div class="row">
+            <h1>Search Newport Businesses Now!</h1>
+      <form style="margin-top:2%;" action = "/Search" method="get" id="searchbox">
+          <input id="search" style="width:80%;" type="text" name = "userin" placeholder="Search...">
           <input id="submit" type="submit" value="Search">
       </form>
+    </div>
           <!-- <form action = "/Search" method="get">
             <span class="icon"><i class="fa fa-search"></i></span>
             <input type="text" id="search" name = "userin" placeholder="Search..."/>
@@ -41,7 +52,11 @@
      </div>
     </div>
   </div>
-
+      <section class="container">
+        <section class="row">
+          <img src="static/img/events_banner.png" alt="events banner">
+        </section>"
+      </section>
       <div class="container">
         <article class="row">
         <section class="col-sm-4">

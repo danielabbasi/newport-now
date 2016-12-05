@@ -120,7 +120,7 @@ form .btn-success{
   background-color:rgba(225, 246, 18, 0.6);
   color:#fff;
   padding:10px;
-  min-height:495px;
+  min-height:575px;
 }
 .textbox{
   color:#000;
@@ -140,8 +140,8 @@ form .btn-success{
     border-width: 1px;
     border-style: solid;
     border-color: #c4d9df #a4c3ca #83afb7;
-    width: 520px;
-    height: 60px;
+    width: 80%;
+    height: auto;
     padding: 10px;
     margin: 10px auto 50px;
     overflow: hidden; /* Clear floats */
@@ -409,5 +409,5 @@ table {
 }
 
 .id{
-  
+
 }
