@@ -135,7 +135,8 @@ def AddComment():
     conn.commit()
     conn.close()
     msg = "Comment submitted"
-    return render_template('contact_us.html', msg=msg)
+    # return render_template('contact_us.html', msg=msg)
+    return redirect('/Contact_us')
 
 @app.route("/Events")
 def events():
