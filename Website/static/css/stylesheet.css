@@ -113,8 +113,10 @@ form .btn-success{
   border-style:solid;
   border-color:2px;
   border-color:#076d7b;
-  padding:10px;
   margin-bottom:20px;
+}
+.quickLinks p{
+  padding:15px;
 }
 .contactUs{
   background-color:rgba(225, 246, 18, 0.6);
@@ -141,10 +143,12 @@ form .btn-success{
     border-style: solid;
     border-color: #c4d9df #a4c3ca #83afb7;
     width: 80%;
+    max-width:800px;
     height: auto;
     padding: 10px;
     margin: 10px auto 50px;
-    overflow: hidden; /* Clear floats */
+    overflow: hidden;
+    max-width: 800px;
 }
 #search,
 #submit {

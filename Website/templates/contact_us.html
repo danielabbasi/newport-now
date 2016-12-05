@@ -50,7 +50,7 @@
             <div class="contactUs" id="rightdiv">
               <section class="form" id="contactForm">
                 <h2>Send me an E-mail</h2>
-                <form name="myForm" class="myForm" action="mailto:rebekah.davies97@hotmail.com" style="overflow:hidden;" method="post" onsubmit="return validateForm()" encrypt="text/plain"><br>
+                <form name="myForm" class="myForm" style="overflow:hidden;" method="post" action="/Contact_us/AddComment"><br>
                   <label for="fname">First Name</label><br>
                     <input type="text" id="fname" name="fname" class="textbox"><br>
                   <label for="lname">Last Name</label><br>
@@ -63,6 +63,7 @@
                   <!-- <input type="submit" value="Submit"> -->
                   <input type="submit" class="btn btn-success" value="Submit">
                   <input type="reset" class="btn btn-info" value="Reset">
+                  {{msg}}
                   </form>
           </section>
           </div>
@@ -97,18 +98,15 @@
 <script>
 
   document.getElementById('contactForm').onsubmit = function() {
-    var company = document.forms["myForm"]["company"].value;
-    var firstName = document.forms["myForm"]["firstName"].value;
-    var surname = document.forms["myForm"]["surname"].value;
-    var phone = document.forms["myForm"]["phone"].value;
-    var mobile = document.forms["myForm"]["mobile"].value;
-    var email = document.forms["myForm"]["email"].value;
-    var street = document.forms["myForm"]["street"].value;
-    var postcode = document.forms["myForm"]["postcode"].value;
+    var fname = document.forms["contactForm"]["fname"].value;
+    var surname = document.forms["contactForm"]["lname"].value;
+    var email = document.forms["contactForm"]["E-mail"].value;
+    var comment = document.forms["contactForm"]["comment"].value;
+
     console.log("Prepping submission")
-    params = 'company='+company+'&firstName='+firstName+'&surname='+surname+'&phone='+phone+'&mobile='+mobile+'&email='+email+'&street='+street+'&postcode='+postcode;
+    params = 'fname='+fname+'&lname='+surname+'&E-mail='+email+'&comment='+comment;
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", '/Admin/AddBusiness', true); // true is asynchronous
+    xhttp.open("POST", '/Contact_us/AddComment', true); // true is asynchronous
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onload = function() {
       if (xhttp.readyState === 4 && xhttp.status === 200) {

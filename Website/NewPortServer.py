@@ -121,6 +121,22 @@ def news():
 def contact_us():
     return render_template('contact_us.html', msg = '')
 
+@app.route("/Contact_us/AddComment", methods = ['POST'])
+def AddComment():
+    fname = request.form.get('fname', default="Error")
+    surname = request.form.get('lname', default="Error")
+    email = request.form.get('E-mail', default="Error")
+    comment = request.form.get('comment', default="Error")
+
+    conn = sqlite3.connect(DATABASE)
+    cur = conn.cursor()
+    cur.execute("INSERT INTO Comments ('FirstName', 'Surname', 'E-mail', 'Comment')\
+                 VALUES (?,?,?,?)",(fname, surname, email, comment))
+    conn.commit()
+    conn.close()
+    msg = "Comment submitted"
+    return render_template('contact_us.html', msg=msg)
+
 @app.route("/Events")
 def events():
     return render_template('events.html', msg = '')
