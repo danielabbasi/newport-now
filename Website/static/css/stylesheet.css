@@ -415,3 +415,58 @@ table {
 .id{
 
 }
+
+/*Events page*/
+
+/*Paragraph styling*/
+
+h1 {
+  color: #ff4411;
+  font-size: 50px;
+  font-family: 'Signika', sans-serif;
+  padding-bottom: 10px;
+  float: center;
+}
+
+p {
+  font-family: 'Inder', sans-serif;
+  line-height: 30px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+a {
+  color: #ff4411;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+}
+
+a:hover {
+  color: #a03c21;
+}
+
+p.date {
+  float: left;
+}
+
+p.location {
+  float:right;
+}
+
+.meta-info {
+  padding: 5px;
+  overflow: hidden;
+}
+
+.meta-info p {
+  font-family: 'Fenix', serif;
+  font-style: italic;
+  color: #666;
+  font-size: 16px;
+}
+
+.btn {
+  float: left;
+}
