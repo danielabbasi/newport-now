@@ -111,6 +111,7 @@ def contact_us():
 
 @app.route("/Events")
 def events():
+    conn = sqlite3.connect(DATABASE)
     return render_template('events.html', msg = '')
 
 @app.route("/Login")
