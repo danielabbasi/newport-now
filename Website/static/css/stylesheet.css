@@ -274,6 +274,7 @@ form .btn-success{
 /* Log in CSS*/
 form {
   border-style:none;
+  font-weight: bold;
 }
 .jumbotron input[type=text]{
   width:50%;
