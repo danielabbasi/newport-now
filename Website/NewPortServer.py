@@ -95,7 +95,7 @@ def search():
         return render_template('SearchList.html', data = data)
 
 
-@app.route("/business")
+@app.route("/Business")
 def business():
     global data
     conn = sqlite3.connect(DATABASE)
